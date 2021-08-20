@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/cardBottomNav"
+        android:title="Cards"
+        android:icon="@drawable/home"/>
+
+    <item
+        android:id="@+id/miniGameBottomNav"
+        android:title="Mini Game"
+        android:icon="@drawable/console"/>
+
+    <item
+        android:id="@+id/newsBottomNav"
+        android:title="News"
+        android:icon="@drawable/envelope"/>
+
+
+</menu>
