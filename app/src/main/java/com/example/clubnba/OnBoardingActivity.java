@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
@@ -11,108 +12,63 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class OnBoardingActivity extends AppCompatActivity {
-    private ViewPager mSlideViewPager;
-    private LinearLayout mLinearLayout;
+import com.chyrta.onboarder.OnboarderActivity;
+import com.chyrta.onboarder.OnboarderPage;
 
-    private TextView[] mDots;
+import java.util.ArrayList;
+import java.util.List;
 
-    private sliderAdapter mSliderAdapter;
-    private Button nextButton;
-    private Button backButton;
-    private int currentPage;
+public class OnBoardingActivity extends OnboarderActivity {
+    List<OnboarderPage> onboarderPages;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_on_boarding);
+        onboarderPages = new ArrayList<OnboarderPage>();
 
-        mSlideViewPager=(ViewPager)findViewById(R.id.slideviewpager);
-        mLinearLayout=(LinearLayout)findViewById(R.id.linearslide);
+        // Create your first page
+        OnboarderPage onboarderPage1 = new OnboarderPage("Welcome to NBA Connect!","Get to Know About Your favourite Players", R.drawable.screen_1);
+        OnboarderPage onboarderPage2 = new OnboarderPage("Get All the Live Updates", "About the Basketball World", R.drawable.onboarding_screen_two);
+        OnboarderPage onboarderPage3 = new OnboarderPage("Play our Mini Game", "And Get a Chance to Meet Your Favourite Player", R.drawable.screen_3);
 
-        nextButton=(Button) findViewById(R.id.button2) ;
-        backButton=(Button) findViewById(R.id.button);
+        // You can define title and description colors (by default white)
+        onboarderPage1.setTitleColor(R.color.black);
+        onboarderPage1.setDescriptionColor(R.color.black);
 
-        mSliderAdapter= new sliderAdapter(this);
-        mSlideViewPager.setAdapter(mSliderAdapter);
-        addDots(0);
-        mSlideViewPager.addOnPageChangeListener(viewListener);
+        onboarderPage2.setTitleColor(R.color.black);
+        onboarderPage2.setDescriptionColor(R.color.black);
 
-        nextButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mSlideViewPager.setCurrentItem(currentPage+1);
-            }
-        });
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mSlideViewPager.setCurrentItem(currentPage-1);
-            }
-        });
+        onboarderPage3.setTitleColor(R.color.black);
+        onboarderPage3.setDescriptionColor(R.color.black);
+
+        // Don't forget to set background color for your page
+        onboarderPage1.setBackgroundColor(R.color.white);
+        onboarderPage2.setBackgroundColor(R.color.white);
+        onboarderPage3.setBackgroundColor(R.color.white);
+
+        // Add your pages to the list
+        onboarderPages.add(onboarderPage1);
+        onboarderPages.add(onboarderPage2);
+        onboarderPages.add(onboarderPage3);
+
+        // And pass your pages to 'setOnboardPagesReady' method
+        setOnboardPagesReady(onboarderPages);
+        setActiveIndicatorColor(android.R.color.black);
+        setInactiveIndicatorColor(android.R.color.darker_gray);
+        shouldDarkenButtonsLayout(true);
+        setDividerColor(Color.YELLOW);
+        setDividerHeight(2);
+        setDividerVisibility(View.GONE);
+        shouldUseFloatingActionButton(true);
+        setSkipButtonTitle("Skip");
+
 
     }
 
-    public void addDots(int position){
-        mDots=new TextView[3];
-        mLinearLayout.removeAllViews();
-        for(int i=0;i<mDots.length;i++){
-            mDots[i]=new TextView(this);
-            mDots[i].setText(Html.fromHtml("&#8226;"));
-            mDots[i].setTextSize(35);
-            mDots[i].setTextColor(getResources().getColor(R.color.transparentWhite));
-
-            mLinearLayout.addView(mDots[i]);
-        }
-        if(mDots.length>0){
-            mDots[position].setTextColor(getResources().getColor(R.color.white));
-        }
+    @Override
+    public void onFinishButtonPressed() {
+        startActivity(new Intent(OnBoardingActivity.this, HomeActivity.class));
+        finish();
     }
-    ViewPager.OnPageChangeListener viewListener=new ViewPager.OnPageChangeListener() {
-        @Override
-        public void onPageScrolled(int i, float j, int k) {
 
-        }
-
-        @Override
-        public void onPageSelected(int i) {
-            addDots(i);
-            currentPage=i;
-            if(i==0){
-                nextButton.setEnabled(true);
-                backButton.setEnabled(false);
-                backButton.setVisibility(View.INVISIBLE);
-
-                nextButton.setText("Next");
-                backButton.setText("");
-            }
-            else if(i==mDots.length-1){
-                nextButton.setEnabled(true);
-                backButton.setEnabled(true);
-                backButton.setVisibility(View.VISIBLE);
-
-                nextButton.setText("Finish");
-                backButton.setText("Back");
-                nextButton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        startActivity(new Intent(OnBoardingActivity.this, IntroActivity.class));
-                    }
-                });
-            }
-            else{
-                nextButton.setEnabled(true);
-                backButton.setEnabled(true);
-                backButton.setVisibility(View.VISIBLE);
-
-                nextButton.setText("Next");
-                backButton.setText("Back");
-            }
-        }
-
-        @Override
-        public void onPageScrollStateChanged(int i) {
-
-        }
-    };
 }

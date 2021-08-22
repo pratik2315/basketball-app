@@ -54,18 +54,6 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
-                    case R.id.home:
-                        startActivity(new Intent(getApplicationContext(), CardFragment.class));
-                        break;
-
-                    case R.id.newsMenu:
-                        startActivity(new Intent(HomeActivity.this, NewsFragment.class));
-                        break;
-
-                    case R.id.miniGameMenu:
-                        startActivity(new Intent(HomeActivity.this, GameFragment.class));
-                        break;
-
                     case R.id.share:
                         //startActivity(new Intent(HomeActivity.this, S.class));
                         break;

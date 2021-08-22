@@ -40,7 +40,7 @@ public class GameFragment extends Fragment {
                 luckyWheel.setLuckyWheelReachTheTarget(new OnLuckyWheelReachTheTarget() {
                     @Override
                     public void onReachTarget() {
-                        Toast.makeText(getContext(),"target reached", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(),"Whooaa!", Toast.LENGTH_SHORT).show();
                         i=r.nextInt(5-0);
                     }
                 });
@@ -58,17 +58,17 @@ public class GameFragment extends Fragment {
     private void generateWheel() {
         wheelItems=new ArrayList<>();
         wheelItems.add(new WheelItem(Color.parseColor("#fc6c6c"), BitmapFactory.decodeResource(getResources(),
-                R.drawable.basketball_img),"b a s k e t b a l l"));
+                R.drawable.basket_sv),"b a s k e t b a l l"));
         wheelItems.add(new WheelItem(Color.parseColor("#00E6FF"), BitmapFactory.decodeResource(getResources(),
                 R.drawable.nothingfound),""));
         wheelItems.add(new WheelItem(Color.parseColor("#F00E6F"), BitmapFactory.decodeResource(getResources(),
                 R.drawable.dollar_img),"10  $"));
         wheelItems.add(new WheelItem(Color.parseColor("#00E6FF"), BitmapFactory.decodeResource(getResources(),
-                R.drawable.player_img),"m e e t  a  p l a y e r"));
+                R.drawable.player_icon),"m e e t  a  p l a y e r"));
         wheelItems.add(new WheelItem(Color.parseColor("#fc6c6c"), BitmapFactory.decodeResource(getResources(),
-                R.drawable.smartphone_img),"S m a r t p h o n e"));
+                R.drawable.iphone),"S m a r t p h o n e"));
         wheelItems.add(new WheelItem(Color.parseColor("#F00E6F"), BitmapFactory.decodeResource(getResources(),
-                R.drawable.jersey_img),"j e r s e y"));
+                R.drawable.nike_shirt),"j e r s e y"));
 
     }
 }

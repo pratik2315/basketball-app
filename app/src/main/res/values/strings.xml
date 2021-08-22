@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Club NBA</string>
+    <string name="app_name">NBA Connect</string>
     <string name="nav_open">Open drawer</string>
     <string name="nav_close">Close drawer</string>
     <string name="title_activity_side_navigation">SideNavigationActivity</string>

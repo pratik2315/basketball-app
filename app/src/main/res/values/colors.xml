@@ -8,9 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="yellow">#FAD240</color>
-<<<<<<< HEAD
     <color name="red">#F41100</color>
-=======
     <color name="transparentWhite">#CCCCCC</color>
 >>>>>>> d9545fa9897956015f88dc22a3374247af6af065
 </resources>
