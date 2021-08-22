@@ -11,10 +11,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ClubNBA">
+<<<<<<< HEAD
         <activity android:name=".GithubPage"></activity>
         <activity android:name=".AboutUsActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".OnBoardingActivity" />
+=======
+        <activity android:name=".OnBoardingActivity"></activity>
+        <activity android:name=".HomeActivity" />
+>>>>>>> d9545fa9897956015f88dc22a3374247af6af065
         <activity android:name=".IntroActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,6 +27,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
 
         <meta-data
             android:name="preloaded_fonts"
