@@ -38,16 +38,16 @@ public class CardFragment extends Fragment {
 
         //set the content of the cards
         playerArrayList.add(new Player("Stephen Curry", "A", "Golden State", "Golden Ohio", "6'3", "185", "65", R.drawable.player21, drawable1));
-        playerArrayList.add(new Player("Lebron James", "A", "Golden State", "Golden Ohio", "6'3", "185", "65", R.drawable.player31, drawable2));
-        playerArrayList.add(new Player("Micheal Jordan", "A", "Golden State", "Golden Ohio", "6'3", "185", "65", R.drawable.player4, drawable3));
-        playerArrayList.add(new Player("Stephen Curry", "A", "Golden State", "Golden Ohio", "6'3", "185", "65", R.drawable.player21, drawable4));
-        playerArrayList.add(new Player("Stephen Curry", "A", "Golden State", "Golden Ohio", "6'3", "185", "65", R.drawable.player31, drawable5));
-        playerArrayList.add(new Player("Stephen Curry", "A", "Golden State", "Golden Ohio", "6'3", "185", "65", R.drawable.player4, drawable1));
-        playerArrayList.add(new Player("Stephen Curry", "A", "Golden State", "Golden Ohio", "6'3", "185", "65", R.drawable.player21, drawable2));
-        playerArrayList.add(new Player("Stephen Curry", "A", "Golden State", "Golden Ohio", "6'3", "185", "65", R.drawable.player31, drawable3));
-        playerArrayList.add(new Player("Stephen Curry", "A", "Golden State", "Golden Ohio", "6'3", "185", "65", R.drawable.player4, drawable4));
-        playerArrayList.add(new Player("Stephen Curry", "A", "Golden State", "Golden Ohio", "6'3", "185", "65", R.drawable.player21, drawable5));
-        playerArrayList.add(new Player("Stephen Curry", "A", "Golden State", "Golden Ohio", "6'3", "185", "65", R.drawable.player31, drawable1));
+        playerArrayList.add(new Player("Lebron James", "A", "Cleveland Cavs", "Akron, Ohio", "6'9", "250", "30", R.drawable.player31, drawable2));
+        playerArrayList.add(new Player("Micheal Jordan", "B", "Chicago Bulls", "Brooklyn", "6'6", "216", "65", R.drawable.player4, drawable3));
+        playerArrayList.add(new Player("Magic Johnson", "B", "Los Ang. lakers", "Lansing", "6'9", "220", "65", R.drawable.magic_jhonson, drawable4));
+        playerArrayList.add(new Player("Wilt Chamberlain", "A", "Philad. Warriors", "Philadelphia", "7'1", "275", "55", R.drawable.player_5, drawable5));
+        playerArrayList.add(new Player("Oscar Robertson", "C", "Cincinnati Royals", "Charlotte", "6'5", "205", "40", R.drawable.player_6, drawable1));
+        playerArrayList.add(new Player("Bill Russell", "A", "St.Louis Hawks", "Monroe", "6'10", "220", "58", R.drawable.player_7, drawable2));
+        playerArrayList.add(new Player("Larry Bird", "B", "Boston celtics", "Indiana", "6'9", "220", "60", R.drawable.player_8, drawable3));
+        playerArrayList.add(new Player("Shaquille O’Neal", "A", "Orlando Magic", "New Jersey", "7'1", "325", "65", R.drawable.player_9, drawable4));
+        playerArrayList.add(new Player("Tim Duncan", "C", "San Ant. Spurs", "Virgin Islands", "6'11", "250", "50", R.drawable.player_10, drawable5));
+       // playerArrayList.add(new Player("Stephen Curry", "A", "Golden State", "Golden Ohio", "6'3", "185", "65", R.drawable.player31, drawable1));
         recyclerView.setAdapter(new CardAdapter(getContext(), playerArrayList));
 
         return view;
