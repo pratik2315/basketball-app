@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -26,15 +27,18 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        toolbar = findViewById(R.id.toolbar);
-        drawerLayout = findViewById(R.id.drawerLayout);
+        toolbar = findViewById(R.id.toolbar_one);
+        drawerLayout = findViewById(R.id.drawerLayout_one);
         navigationView = findViewById(R.id.navigationView);
         bottomNavigationView = findViewById(R.id.bottom_nav);
         setUpNavigationBar();
+        sideNavContents();
         setUpBottomNavigation();
+
         if (savedInstanceState == null) {
-            bottomNavigationView.setSelectedItemId(R.id.cardBottomNav); // change to whichever id should be default
+            bottomNavigationView.setSelectedItemId(R.id.cardBottomNav); //saves the state of the default fragment
         }
+
     }
 
     //sets up side navigation bar
@@ -44,11 +48,44 @@ public class HomeActivity extends AppCompatActivity {
         actionBarDrawerToggle.syncState();
     }
 
+    //contents of side navigation bar
+    private void sideNavContents(){
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.home:
+                        startActivity(new Intent(getApplicationContext(), CardFragment.class));
+                        break;
+
+                    case R.id.newsMenu:
+                        startActivity(new Intent(HomeActivity.this, NewsFragment.class));
+                        break;
+
+                    case R.id.miniGameMenu:
+                        startActivity(new Intent(HomeActivity.this, GameFragment.class));
+                        break;
+
+                    case R.id.share:
+                        //startActivity(new Intent(HomeActivity.this, S.class));
+                        break;
+
+                    case R.id.aboutUs:
+                        startActivity(new Intent(HomeActivity.this, AboutUsActivity.class));
+                        break;
+
+                    case R.id.github:
+                        startActivity(new Intent(HomeActivity.this, GithubPage.class));
+                        break;
+                }
+                return true;
+            }
+        });
+    }
+
     //set up bottom navigation
     private void setUpBottomNavigation(){
-        Bundle savedInstanceState;
-
-       bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
            @Override
            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                Fragment selectedFragment = null;
