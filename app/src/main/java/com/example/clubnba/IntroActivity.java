@@ -23,7 +23,7 @@ public class IntroActivity extends AppCompatActivity {
         getStarted.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(IntroActivity.this, OnBoardingActivity.class));
+                startActivity(new Intent(IntroActivity.this, HomeActivity.class));
                 finish();
             }
         });
@@ -39,7 +39,7 @@ public class IntroActivity extends AppCompatActivity {
         tvGetStarted.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(IntroActivity.this, OnBoardingActivity.class));
+                startActivity(new Intent(IntroActivity.this, HomeActivity.class));
                 finish();
             }
         });

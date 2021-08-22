@@ -67,7 +67,7 @@ public class OnBoardingActivity extends OnboarderActivity {
 
     @Override
     public void onFinishButtonPressed() {
-        startActivity(new Intent(OnBoardingActivity.this, HomeActivity.class));
+        startActivity(new Intent(OnBoardingActivity.this, IntroActivity.class));
         finish();
     }
 
